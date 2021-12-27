@@ -3,6 +3,8 @@ package com.codepath.qing.simpletodo;
 
 
 
+import static android.view.View.*;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     List<String> items;
 
     Button btnAdd;
+
     EditText etItem;
     RecyclerView rvItems;
     ItemsAdaptor itemsAdaptor;
@@ -40,23 +43,27 @@ public class MainActivity extends AppCompatActivity {
         rvItems = findViewById(R.id.rvItems);
 
 
+
         loadItems();
 
 
-        ItemsAdaptor.OnLongClickListener onLongClickListener = new ItemsAdaptor.OnLongClickListener() {
+        /**ItemsAdaptor.OnLongClickListener onLongClickListener = new ItemsAdaptor.OnLongClickListener() {
             @Override
             public void onItemLongClicked(int position) {
                 items.remove(position);
                 itemsAdaptor.notifyItemRemoved(position);
                 Toast.makeText(getApplicationContext(),"Item was successfully removed!", Toast.LENGTH_SHORT).show();
                 saveItems();
+
             }
-        };
-        itemsAdaptor = new ItemsAdaptor(items, onLongClickListener);
+        };**/
+
+
+        itemsAdaptor = new ItemsAdaptor(items,this);
         rvItems.setAdapter(itemsAdaptor);
         rvItems.setLayoutManager(new LinearLayoutManager(this));
 
-        btnAdd.setOnClickListener(new View.OnClickListener(){
+        btnAdd.setOnClickListener(new OnClickListener(){
 
             @Override
             public void onClick(View v) {
@@ -82,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void saveItems(){
+    public void saveItems(){
         try {
             FileUtils.writeLines(getDataFile(), items);
         } catch (IOException e) {
