@@ -20,13 +20,14 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [X] User can **long click the item so a DELETE button will appear.
+* [X] User can **click the DELETE button to remove the item.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/anfKH5h.gifv' title='A video walkthrough of SimpleTodo' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/hHRwA1E.gifv' title='A video walkthrough of SimpleTodo' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
